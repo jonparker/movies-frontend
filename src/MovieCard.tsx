@@ -79,7 +79,7 @@ const MovieCard: React.SFC<MovieProps> = (movie) => {
         <Typography variant="body2" color="textSecondary" component="p">
             {movie.actors}
         </Typography>
-        <ScheduleIcon fontSize="small" /><Typography variant="body2" color="textSecondary" component="p">{movie.runtime}</Typography>
+        <ScheduleIcon/><Typography variant="body2" color="textSecondary" component="span">{movie.runtime}</Typography>
       </CardContent>
       <CardMedia
         className={classes.media}
