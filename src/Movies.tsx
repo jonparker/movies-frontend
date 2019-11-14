@@ -39,7 +39,7 @@ const Movies: React.FC = () => {
         "country": "USA",
         "awards": "Won 1 Oscar. Another 19 wins & 18 nominations.",
         "metascore": 80,
-        "rating": "8.8",
+        "rating": 4,
         "votes": "842,451",
         "type": "movie",
         "price": "13.5"
@@ -60,7 +60,7 @@ const Movies: React.FC = () => {
         "awards": "Won 1 Oscar. Another 19 wins & 18 nominations.",
         "poster": "http://ia.media-imdb.com/images/M/MV5BMjE2MzQwMTgxN15BMl5BanBnXkFtZTcwMDQzNjk2OQ@@._V1_SX300.jpg",
         "metascore": 80,
-        "rating": "8.8",
+        "rating": 3,
         "votes": "842,451",
         "id": "cw0080684",
         "type": "movie",
@@ -77,11 +77,13 @@ const Movies: React.FC = () => {
                     key={movie.id}
                     title={movie.title}
                     rated={movie.rated}
+                    rating={movie.rating}
                     id={movie.id}
                     poster={movie.poster}
                     released={movie.released}
                     actors={movie.actors}
                     plot={movie.plot}
+                    year={movie.year}
                  />
             )}
         </Grid>

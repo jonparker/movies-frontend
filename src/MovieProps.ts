@@ -15,7 +15,7 @@ export default interface MovieProps {
     poster?: string;
     metascore?: number;
     votes?: string;
-    rating?: string;
+    rating: number | null;
     id: string;
     type?: string;
     price?: string;

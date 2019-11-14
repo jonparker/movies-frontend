@@ -10,9 +10,11 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import { red, purple } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Divider from '@material-ui/core/Divider';
 import MovieProps from './MovieProps';
+import Rating from '@material-ui/lab/Rating';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,6 +38,9 @@ const useStyles = makeStyles((theme: Theme) =>
     avatar: {
       backgroundColor: red[500],
     },
+    purpleAvatar: {
+        backgroundColor: purple[500],
+    }
   }),
 );
 
@@ -51,23 +56,26 @@ const MovieCard: React.SFC<MovieProps> = (movie) => {
     <Card className={classes.card}>
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
+          <Avatar aria-label="rated" className={classes.avatar}>
             {movie.rated}
           </Avatar>
         }
         
         title={movie.title}
-        subheader={movie.released}
+        subheader={movie.year}
       />
+      <Rating name="rating" readOnly value={movie.rating} />
       <CardMedia
         className={classes.media}
         image={movie.poster}
         title={movie.title}
       />
+      <Divider/>
       <CardContent>
-        <Typography variant="body2" color="textPrimary" component="p">
-        Actors:
-        </Typography>
+        <Avatar aria-label="actors" className={classes.purpleAvatar}>
+            
+          </Avatar>
+          {movie.actors}
         <Typography variant="body2" color="textSecondary" component="p">
         {movie.actors}
         </Typography>
