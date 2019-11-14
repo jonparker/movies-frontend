@@ -10,13 +10,18 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red, purple } from '@material-ui/core/colors';
+import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from '@material-ui/core/Divider';
 import MovieProps from './MovieProps';
 import Rating from '@material-ui/lab/Rating';
 import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import LanguageIcon from '@material-ui/icons/Language';
+import RoomIcon from '@material-ui/icons/Room';
+import LocalAtmIcon from '@material-ui/icons/LocalAtm';
+import TheatersIcon from '@material-ui/icons/Theaters';
+import CreateIcon from '@material-ui/icons/Create';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,9 +47,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     rating: {
         paddingLeft: '5%'
-    },
-    purpleAvatar: {
-        backgroundColor: purple[500],
     }
   }),
 );
@@ -73,13 +75,34 @@ const MovieCard: React.SFC<MovieProps> = (movie) => {
       />
       <Rating name="rating" size="small" className={classes.rating} readOnly value={movie.rating} />
       <CardContent>
-        <Avatar aria-label="actors" variant="square" className={classes.purpleAvatar}>
-            <RecentActorsIcon fontSize="small"/>
-        </Avatar>
+      <RecentActorsIcon/>
         <Typography variant="body2" color="textSecondary" component="p">
             {movie.actors}
         </Typography>
-        <ScheduleIcon/><Typography variant="body2" color="textSecondary" component="span">{movie.runtime}</Typography>
+        
+        <Typography variant="body2" color="textSecondary" component="p">
+            <ScheduleIcon/>{movie.runtime}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+            <LanguageIcon/>{movie.language}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+            <RoomIcon/>{movie.country}
+        </Typography>
+
+        <Typography variant="body2" color="textSecondary" component="p">
+            <LocalAtmIcon/>{movie.price}
+        </Typography>
+        
+        <Typography variant="body2" color="textSecondary" component="p">
+            <TheatersIcon/>{movie.genre}
+        </Typography>
+
+        <Typography variant="body2" color="textSecondary" component="p">
+            <CreateIcon/>{movie.writer}
+        </Typography>
+        
+        
       </CardContent>
       <CardMedia
         className={classes.media}

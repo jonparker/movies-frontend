@@ -85,6 +85,12 @@ const Movies: React.FC = () => {
                     actors={movie.actors}
                     plot={movie.plot}
                     year={movie.year}
+                    country={movie.country}
+                    language={movie.language}
+                    price={movie.price}
+                    genre={movie.genre}
+                    director={movie.director}
+                    writer={movie.writer}
                  />
             )}
         </Grid>
