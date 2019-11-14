@@ -1,6 +1,6 @@
 import React from 'react';
 import Movie from './Movie';
-import { MovieProps } from './MovieProps';
+import MovieProps from './MovieProps';
 
 const Movies: React.FC = () => {
     const movies: Array<MovieProps> = [
