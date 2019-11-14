@@ -3,13 +3,12 @@ import './App.css';
 import Movies from './Movies';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import 'typeface-roboto';
-import Typography from '@material-ui/core/Typography';
+import MovieAppBar from './MovieAppBar';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   root: {
-    width: '100%',
-    maxWidth: 500,
+    width: '100%'
   },
 });
 
@@ -18,7 +17,7 @@ const App: React.FC = () => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Typography/>
+      <MovieAppBar />
       <Movies/>
     </div>
   );
