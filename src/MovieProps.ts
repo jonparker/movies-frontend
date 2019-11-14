@@ -1,4 +1,4 @@
-export interface MovieProps {
+export default interface MovieProps {
     title: string;
     year?: string;
     rated?: string;

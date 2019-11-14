@@ -1,5 +1,5 @@
 import React from 'react';
-import { MovieProps } from './MovieProps';
+import MovieProps from './MovieProps';
 
 const Movie: React.FC<MovieProps> = (movie) => {
     return (
