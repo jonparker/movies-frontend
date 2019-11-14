@@ -65,8 +65,11 @@ const MovieCard: React.SFC<MovieProps> = (movie) => {
         title={movie.title}
       />
       <CardContent>
+        <Typography variant="body2" color="textPrimary" component="p">
+        Actors:
+        </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-            Actors: {movie.actors}
+        {movie.actors}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
