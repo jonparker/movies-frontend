@@ -124,7 +124,8 @@ const MovieCard: React.SFC<MovieProps> = (movie) => {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-        <Typography paragraph>Plot:</Typography>
+        <Typography variant="h5">Plot</Typography>
+        <Divider/>
         <Typography paragraph>{movie.plot}</Typography>
         </CardContent>
       </Collapse>
