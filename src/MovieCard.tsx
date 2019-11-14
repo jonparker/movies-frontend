@@ -59,7 +59,7 @@ const MovieCard: React.SFC<MovieProps> = (movie) => {
     setExpanded(!expanded);
   };
 
-  const releasedYear = "Released " + movie.year;
+  const subheader = `${movie.director}, ${movie.year}`;
 
   return (
     <Card className={classes.card}>
@@ -71,7 +71,7 @@ const MovieCard: React.SFC<MovieProps> = (movie) => {
         }
         
         title={movie.title}
-        subheader={releasedYear}
+        subheader={subheader}
       />
       <Rating name="rating" size="small" className={classes.rating} readOnly value={movie.rating} />
       <CardContent>
