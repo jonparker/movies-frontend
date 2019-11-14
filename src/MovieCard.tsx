@@ -15,6 +15,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from '@material-ui/core/Divider';
 import MovieProps from './MovieProps';
 import Rating from '@material-ui/lab/Rating';
+import RecentActorsIcon from '@material-ui/icons/RecentActors';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -38,6 +40,9 @@ const useStyles = makeStyles((theme: Theme) =>
     avatar: {
       backgroundColor: red[500],
     },
+    rating: {
+        paddingLeft: '5%'
+    },
     purpleAvatar: {
         backgroundColor: purple[500],
     }
@@ -52,6 +57,8 @@ const MovieCard: React.SFC<MovieProps> = (movie) => {
     setExpanded(!expanded);
   };
 
+  const releasedYear = "Released " + movie.year;
+
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -62,24 +69,24 @@ const MovieCard: React.SFC<MovieProps> = (movie) => {
         }
         
         title={movie.title}
-        subheader={movie.year}
+        subheader={releasedYear}
       />
-      <Rating name="rating" readOnly value={movie.rating} />
+      <Rating name="rating" size="small" className={classes.rating} readOnly value={movie.rating} />
+      <CardContent>
+        <Avatar aria-label="actors" variant="square" className={classes.purpleAvatar}>
+            <RecentActorsIcon fontSize="small"/>
+        </Avatar>
+        <Typography variant="body2" color="textSecondary" component="p">
+            {movie.actors}
+        </Typography>
+        <ScheduleIcon fontSize="small" /><Typography variant="body2" color="textSecondary" component="p">{movie.runtime}</Typography>
+      </CardContent>
       <CardMedia
         className={classes.media}
         image={movie.poster}
         title={movie.title}
       />
       <Divider/>
-      <CardContent>
-        <Avatar aria-label="actors" className={classes.purpleAvatar}>
-            
-          </Avatar>
-          {movie.actors}
-        <Typography variant="body2" color="textSecondary" component="p">
-        {movie.actors}
-        </Typography>
-      </CardContent>
       <CardActions disableSpacing>
         <IconButton
           className={clsx(classes.expand, {

@@ -78,6 +78,7 @@ const Movies: React.FC = () => {
                     title={movie.title}
                     rated={movie.rated}
                     rating={movie.rating}
+                    runtime={movie.runtime}
                     id={movie.id}
                     poster={movie.poster}
                     released={movie.released}
