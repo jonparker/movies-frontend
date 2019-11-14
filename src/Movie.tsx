@@ -47,5 +47,5 @@ const Movie: React.FC<MovieProps> = (movie) => {
     );
   }
   
-  export default Movie;
+export default Movie;
   

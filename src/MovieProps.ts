@@ -2,7 +2,7 @@ export default interface MovieProps {
     title: string;
     year?: string;
     rated?: string;
-    release?: string;
+    released?: string;
     runtime?: string;
     genre?: string;
     director?: string;
@@ -10,10 +10,11 @@ export default interface MovieProps {
     actors?: string;
     plot?: string;
     language?: string;
-    contry?: string;
+    country?: string;
     awards?: string;
     poster?: string;
     metascore?: number;
+    votes?: string;
     rating?: string;
     id: string;
     type?: string;
