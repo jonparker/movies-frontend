@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import IMovieProps, { IMovies } from './IMovieProps';
+import IMovieProps from './IMovieProps';
 import MovieCard from './MovieCard';
 
 const useStyles = makeStyles((theme: Theme) =>

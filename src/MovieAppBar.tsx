@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -8,6 +8,8 @@ import Box from '@material-ui/core/Box';
 import Movies from './Movies';
 import CinemaWorldMovieService from './services/CinemaWorldMovieService';
 import FilmWorldMovieService from './services/FilmWorldMovieService';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import IMovieProps from './IMovieProps';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -43,19 +45,27 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
-  },
+  }
 }));
 
 export default function SimpleTabs() {
+  const cinemaWorldMovieService = new CinemaWorldMovieService();
+  const filmWorldMoviesService = new FilmWorldMovieService();
+
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+
+  const [cinemaWorldMovies, setCinemaWorldMovies] = React.useState<IMovieProps[] | null>(null);
+  const [filmWorldMovies, setFilmWorldMovies] = React.useState<IMovieProps[] | null>(null);
+
+  useEffect(() => {
+    setCinemaWorldMovies(cinemaWorldMovieService.GetMovies());
+    setFilmWorldMovies(filmWorldMoviesService.GetMovies());
+  }, []);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
-
-  const cinemaWorldMovies = new CinemaWorldMovieService().GetMovies();
-  const filmWorldMovies = new FilmWorldMovieService().GetMovies();
 
   return (
     <div className={classes.root}>
@@ -66,10 +76,20 @@ export default function SimpleTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Movies key={1} movies={cinemaWorldMovies}/>
+        {cinemaWorldMovies &&
+          <Movies key={1} movies={cinemaWorldMovies}/>
+        }
+        {!cinemaWorldMovies &&
+          <CircularProgress disableShrink/>
+        }
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Movies key={2} movies={filmWorldMovies}/>
+        {filmWorldMovies &&
+          <Movies key={2} movies={filmWorldMovies}/>
+        }
+        {!filmWorldMovies &&
+          <CircularProgress disableShrink/>
+        }
       </TabPanel>
     </div>
   );

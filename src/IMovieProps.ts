@@ -1,7 +1,3 @@
-export interface IMovies {
-    Movies: Array<IMovieProps>;
-}
-
 export default interface IMovieProps {
     title: string;
     year?: string;
