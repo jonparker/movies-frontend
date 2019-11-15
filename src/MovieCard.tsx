@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from '@material-ui/core/Divider';
-import MovieProps from './MovieProps';
+import IMovieProps from './MovieProps';
 import Rating from '@material-ui/lab/Rating';
 import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import ScheduleIcon from '@material-ui/icons/Schedule';
@@ -44,6 +44,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     avatar: {
       backgroundColor: red[500],
+      width: "60px",
+      height: "60px"
     },
     rating: {
         paddingLeft: '5%'
@@ -51,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const MovieCard: React.SFC<MovieProps> = (movie) => {
+const MovieCard: React.FC<{movie: IMovieProps}> = ({children, movie}) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 

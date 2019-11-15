@@ -1,40 +1,76 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import Box from '@material-ui/core/Box';
+import Movies from './Movies';
+import CinemaWorldMovieService from './services/CinemaWorldMovieService';
+import FilmWorldMovieService from './services/FilmWorldMovieService';
 
-const useStyles = makeStyles(theme => ({
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: any;
+  value: any;
+}
+
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      <Box p={3}>{children}</Box>
+    </Typography>
+  );
+}
+
+function a11yProps(index: any) {
+  return {
+    id: `movie-tab-${index}`,
+    'aria-controls': `movie-tabpanel-${index}`,
+  };
+}
+
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
   },
 }));
 
-const MovieAppBar: React.FC = () => {
+export default function SimpleTabs() {
   const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    setValue(newValue);
+  };
+
+  const cinemaWorldMovies = new CinemaWorldMovieService().GetMovies();
+  const filmWorldMovies = new FilmWorldMovieService().GetMovies();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Movies
-          </Typography>
-        </Toolbar>
+        <Tabs value={value} onChange={handleChange} aria-label="cinema world and film world tabs">
+          <Tab label="Cinema World" {...a11yProps(0)} />
+          <Tab label="Film World" {...a11yProps(1)} />
+        </Tabs>
       </AppBar>
+      <TabPanel value={value} index={0}>
+        <Movies key={1} movies={cinemaWorldMovies}/>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <Movies key={2} movies={filmWorldMovies}/>
+      </TabPanel>
     </div>
   );
 }
-
-export default MovieAppBar;

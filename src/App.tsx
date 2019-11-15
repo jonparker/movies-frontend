@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Movies from './Movies';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import 'typeface-roboto';
 import MovieAppBar from './MovieAppBar';
@@ -18,7 +17,6 @@ const App: React.FC = () => {
     <div className={classes.root}>
       <CssBaseline />
       <MovieAppBar />
-      <Movies/>
     </div>
   );
 }
