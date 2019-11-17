@@ -1,15 +1,17 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.0 as build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine as build
+
+WORKDIR /src
 
 COPY . .
 
-WORKDIR "src/MoviesApp/"
+RUN dotnet build -c Release -o /app
 
-RUN dotnet build
+FROM build AS publish
+RUN dotnet publish -c Release -r linux-musl-x64 -o /app
 
-RUN dotnet test
-
-RUN dotnet publish MoviesApp.csproj -c Release -o /app
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-alpine as runtime
 
 WORKDIR /app
+COPY --from=publish /app .
 
 ENTRYPOINT [ "dotnet", "MoviesApp.dll" ]
