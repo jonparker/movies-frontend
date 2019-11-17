@@ -1,0 +1,8 @@
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MoviesApp/obj/Debug/netcoreapp3.0/MoviesApp.csprojAssemblyReference.cache
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MoviesApp/obj/Debug/netcoreapp3.0/staticwebassets/MoviesApp.StaticWebAssets.Manifest.cache
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MoviesApp/obj/Debug/netcoreapp3.0/staticwebassets/MoviesApp.StaticWebAssets.xml
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MoviesApp/obj/Debug/netcoreapp3.0/MoviesApp.MvcApplicationPartsAssemblyInfo.cache
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MoviesApp/obj/Debug/netcoreapp3.0/MoviesApp.AssemblyInfoInputs.cache
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MoviesApp/obj/Debug/netcoreapp3.0/MoviesApp.AssemblyInfo.cs
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MoviesApp/obj/Debug/netcoreapp3.0/MoviesApp.dll
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MoviesApp/obj/Debug/netcoreapp3.0/MoviesApp.pdb

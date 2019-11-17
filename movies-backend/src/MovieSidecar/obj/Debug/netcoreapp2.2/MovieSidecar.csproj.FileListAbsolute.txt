@@ -1,0 +1,10 @@
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MovieSidecar/bin/Debug/netcoreapp2.2/MovieSidecar.deps.json
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MovieSidecar/bin/Debug/netcoreapp2.2/MovieSidecar.runtimeconfig.json
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MovieSidecar/bin/Debug/netcoreapp2.2/MovieSidecar.runtimeconfig.dev.json
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MovieSidecar/bin/Debug/netcoreapp2.2/MovieSidecar.dll
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MovieSidecar/bin/Debug/netcoreapp2.2/MovieSidecar.pdb
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MovieSidecar/obj/Debug/netcoreapp2.2/MovieSidecar.csprojAssemblyReference.cache
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MovieSidecar/obj/Debug/netcoreapp2.2/MovieSidecar.AssemblyInfoInputs.cache
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MovieSidecar/obj/Debug/netcoreapp2.2/MovieSidecar.AssemblyInfo.cs
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MovieSidecar/obj/Debug/netcoreapp2.2/MovieSidecar.dll
+/Users/jonathan/Projects/JobApplications/webjet/webjet/src/MovieSidecar/obj/Debug/netcoreapp2.2/MovieSidecar.pdb
