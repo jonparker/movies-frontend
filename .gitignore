@@ -1,2 +1,8 @@
 node_modules/
 build/
+[Oo]bj/
+[Bb]in/
+[Dd]ebug/
+[Rr]elease/
+.idea
+.vscode
