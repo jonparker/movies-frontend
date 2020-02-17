@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 public class Startup
 {
@@ -15,10 +16,13 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+        services
+            .AddMvc()
+            .AddMvcOptions(opt => opt.EnableEndpointRouting = false)
+            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
     }
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         if (env.IsDevelopment())
         {
