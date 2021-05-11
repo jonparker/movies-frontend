@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - master
+defaults:
+  run:
+    working-directory: movies-frontend
+
 jobs:
   build:
     runs-on: ubuntu-latest
