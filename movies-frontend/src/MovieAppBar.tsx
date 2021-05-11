@@ -61,7 +61,7 @@ export default function SimpleTabs() {
   useEffect(() => {
     setCinemaWorldMovies(cinemaWorldMovieService.GetMovies());
     setFilmWorldMovies(filmWorldMoviesService.GetMovies());
-  }, []);
+  }, [cinemaWorldMovieService, filmWorldMoviesService]);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
