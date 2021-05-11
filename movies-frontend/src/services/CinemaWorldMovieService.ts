@@ -1,5 +1,5 @@
 import IMovieProps from '../IMovieProps';
-import axios from 'axios';
+//import axios from 'axios';
 
 export default class CinemaWorldMovieService {
     GetMovies() : Array<IMovieProps>
