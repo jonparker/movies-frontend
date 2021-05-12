@@ -59,11 +59,11 @@ export default function SimpleTabs() {
   const [filmWorldMovies, setFilmWorldMovies] = React.useState<IMovieProps[] | null>(null);
 
   useEffect(() => {
-    const fetchBusinesses = () => {
-      cinemaWorldMovieService.GetMovies();
-      filmWorldMoviesService.GetMovies()
+    const fetchAll = () => {
+      setCinemaWorldMovies(cinemaWorldMovieService.GetMovies());
+      setFilmWorldMovies(filmWorldMoviesService.GetMovies());
     };
-    fetchBusinesses();
+    fetchAll();
   }, []);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
