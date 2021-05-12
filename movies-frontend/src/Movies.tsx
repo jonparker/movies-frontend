@@ -9,11 +9,13 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      gap: '1rem'
     },
     paper: {
       padding: theme.spacing(2),
       margin: 'auto',
+    },
+    grid: {
+      gap: '1rem'
     }
   }),
 );
@@ -24,7 +26,7 @@ const Movies: React.FC<{movies: Array<IMovieProps>}> = ({children, movies}) => {
   return (
     <div className={classes.root}>
       <Paper square className={classes.paper}>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} className={classes.grid}>
             {movies.map(movie => <MovieCard movie={movie} key={movie.id}/>)}
         </Grid>
       </Paper>
