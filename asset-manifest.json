@@ -1,25 +1,24 @@
 {
   "files": {
-    "main.css": "/movies-frontend/static/css/main.dfca195d.chunk.css",
-    "main.js": "/movies-frontend/static/js/main.5c29bc08.chunk.js",
-    "main.js.map": "/movies-frontend/static/js/main.5c29bc08.chunk.js.map",
-    "runtime-main.js": "/movies-frontend/static/js/runtime-main.1eb07e49.js",
-    "runtime-main.js.map": "/movies-frontend/static/js/runtime-main.1eb07e49.js.map",
-    "static/css/2.0a59f78c.chunk.css": "/movies-frontend/static/css/2.0a59f78c.chunk.css",
-    "static/js/2.2ad8a0ea.chunk.js": "/movies-frontend/static/js/2.2ad8a0ea.chunk.js",
-    "static/js/2.2ad8a0ea.chunk.js.map": "/movies-frontend/static/js/2.2ad8a0ea.chunk.js.map",
+    "main.css": "/movies-frontend/static/css/main.395b866c.chunk.css",
+    "main.js": "/movies-frontend/static/js/main.5723f4af.chunk.js",
+    "main.js.map": "/movies-frontend/static/js/main.5723f4af.chunk.js.map",
+    "runtime-main.js": "/movies-frontend/static/js/runtime-main.831a2e51.js",
+    "runtime-main.js.map": "/movies-frontend/static/js/runtime-main.831a2e51.js.map",
+    "static/css/2.221f2d37.chunk.css": "/movies-frontend/static/css/2.221f2d37.chunk.css",
+    "static/js/2.b4835684.chunk.js": "/movies-frontend/static/js/2.b4835684.chunk.js",
+    "static/js/2.b4835684.chunk.js.map": "/movies-frontend/static/js/2.b4835684.chunk.js.map",
     "index.html": "/movies-frontend/index.html",
-    "precache-manifest.9f25160d484460066f537c726517a4b4.js": "/movies-frontend/precache-manifest.9f25160d484460066f537c726517a4b4.js",
-    "service-worker.js": "/movies-frontend/service-worker.js",
-    "static/css/2.0a59f78c.chunk.css.map": "/movies-frontend/static/css/2.0a59f78c.chunk.css.map",
-    "static/css/main.dfca195d.chunk.css.map": "/movies-frontend/static/css/main.dfca195d.chunk.css.map",
-    "static/media/index.css": "/movies-frontend/static/media/roboto-latin-900italic.ebf6d164.woff2"
+    "static/css/2.221f2d37.chunk.css.map": "/movies-frontend/static/css/2.221f2d37.chunk.css.map",
+    "static/css/main.395b866c.chunk.css.map": "/movies-frontend/static/css/main.395b866c.chunk.css.map",
+    "static/js/2.b4835684.chunk.js.LICENSE.txt": "/movies-frontend/static/js/2.b4835684.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/movies-frontend/static/media/roboto-latin-900italic.cb5ad999.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.1eb07e49.js",
-    "static/css/2.0a59f78c.chunk.css",
-    "static/js/2.2ad8a0ea.chunk.js",
-    "static/css/main.dfca195d.chunk.css",
-    "static/js/main.5c29bc08.chunk.js"
+    "static/js/runtime-main.831a2e51.js",
+    "static/css/2.221f2d37.chunk.css",
+    "static/js/2.b4835684.chunk.js",
+    "static/css/main.395b866c.chunk.css",
+    "static/js/main.5723f4af.chunk.js"
   ]
 }
