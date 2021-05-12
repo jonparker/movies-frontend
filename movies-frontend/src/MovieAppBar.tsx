@@ -64,7 +64,7 @@ export default function SimpleTabs() {
       setFilmWorldMovies(filmWorldMoviesService.GetMovies());
     };
     fetchAll();
-  }, []);
+  });
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
