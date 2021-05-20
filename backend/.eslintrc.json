@@ -3,11 +3,10 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jest/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
+    "plugins:node/recommended",
     "prettier"
   ],
-  "plugins": ["@typescript-eslint", "node", "react", "react-hooks", "jest"],
+  "plugins": ["@typescript-eslint", "node", "jest"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2021,
