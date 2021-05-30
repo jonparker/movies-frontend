@@ -66,7 +66,7 @@ export default function SimpleTabs() {
       setFilmWorldMovies(filmWorldMoviesService.GetMovies());
     };
     fetchAll();
-  });
+  }, []);
 
   const handleChange = (
     event: React.ChangeEvent<Record<string, unknown>>,
