@@ -54,7 +54,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const MovieCard: React.FC<{ movie: IMovieProps }> = ({ movie }) => {
+const MovieCard: React.FC<{ movie: IMovieProps }> = ({
+  movie,
+}: {
+  movie: IMovieProps;
+}) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -143,10 +147,6 @@ const MovieCard: React.FC<{ movie: IMovieProps }> = ({ movie }) => {
       </Collapse>
     </Card>
   );
-};
-
-MovieCard.propTypes = {
-  movie: PropTypes.arrayOf(PropTypes.instanceOf(IMovieProps)),
 };
 
 export default MovieCard;

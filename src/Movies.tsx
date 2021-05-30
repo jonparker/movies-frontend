@@ -21,7 +21,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Movies: React.FC<{ movies: Array<IMovieProps> }> = ({ movies }) => {
+const Movies: React.FC<{ movies: Array<IMovieProps> }> = ({
+  movies,
+}: {
+  movies: IMovieProps[];
+}) => {
   const classes = useStyles();
 
   return (
@@ -37,7 +41,4 @@ const Movies: React.FC<{ movies: Array<IMovieProps> }> = ({ movies }) => {
   );
 };
 
-Movies.propTypes = {
-  movies: PropTypes.arrayof(PropTypes.instanceOf(IMovieProps)),
-};
 export default Movies;
