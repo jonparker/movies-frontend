@@ -37,13 +37,6 @@ function TabPanel(props: TabPanelProps) {
   )
 }
 
-function a11yProps(index: object) {
-  return {
-    id: `movie-tab-${index}`,
-    "aria-controls": `movie-tabpanel-${index}`,
-  }
-}
-
 export default function SimpleTabs() {
   const [value, setValue] = React.useState(0)
 
@@ -85,8 +78,8 @@ export default function SimpleTabs() {
           onChange={handleChange}
           aria-label="cinema world and film world tabs"
         >
-          <Tab label="Cinema World" {...a11yProps(0)} />
-          <Tab label="Film World" {...a11yProps(1)} />
+          <Tab label="Cinema World" />
+          <Tab label="Film World" />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
