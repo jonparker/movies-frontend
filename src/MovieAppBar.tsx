@@ -16,8 +16,8 @@ import IMovieProps from "./IMovieProps"
 
 interface TabPanelProps {
   children?: React.ReactNode
-  index: any
-  value: any
+  index: number
+  value: number
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -37,7 +37,7 @@ function TabPanel(props: TabPanelProps) {
   )
 }
 
-function a11yProps(index: any) {
+function a11yProps(index: object) {
   return {
     id: `movie-tab-${index}`,
     "aria-controls": `movie-tabpanel-${index}`,

@@ -35,7 +35,7 @@ const MovieCard = ({ movie }: { movie: IMovieProps }) => {
   return (
     <Card
       css={css`
-        maxwidth: 345;
+        max-width: 345;
       `}
     >
       <CardHeader
