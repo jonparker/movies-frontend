@@ -1,77 +1,53 @@
-import React from "react";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Divider from "@material-ui/core/Divider";
-import IMovieProps from "./MovieProps";
-import Rating from "@material-ui/lab/Rating";
-import RecentActorsIcon from "@material-ui/icons/RecentActors";
-import ScheduleIcon from "@material-ui/icons/Schedule";
-import LanguageIcon from "@material-ui/icons/Language";
-import RoomIcon from "@material-ui/icons/Room";
-import LocalAtmIcon from "@material-ui/icons/LocalAtm";
-import TheatersIcon from "@material-ui/icons/Theaters";
-import CreateIcon from "@material-ui/icons/Create";
+/* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
+/** @jsxImportSource @emotion/react */
+import React from "react"
+import { css } from "@emotion/react"
+import Card from "@mui/material/Card"
+import CardHeader from "@mui/material/CardHeader"
+import CardMedia from "@mui/material/CardMedia"
+import CardContent from "@mui/material/CardContent"
+import CardActions from "@mui/material/CardActions"
+import Collapse from "@mui/material/Collapse"
+import Avatar from "@mui/material/Avatar"
+import IconButton from "@mui/material/IconButton"
+import Typography from "@mui/material/Typography"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import Divider from "@mui/material/Divider"
+import IMovieProps from "./MovieProps"
+import Rating from "@mui/material/Rating"
+import RecentActorsIcon from "@mui/icons-material/RecentActors"
+import ScheduleIcon from "@mui/icons-material/Schedule"
+import LanguageIcon from "@mui/icons-material/Language"
+import RoomIcon from "@mui/icons-material/Room"
+import LocalAtmIcon from "@mui/icons-material/LocalAtm"
+import TheatersIcon from "@mui/icons-material/Theaters"
+import CreateIcon from "@mui/icons-material/Create"
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    card: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 0,
-      paddingTop: "56.25%", // 16:9
-    },
-    expand: {
-      transform: "rotate(0deg)",
-      marginLeft: "auto",
-      transition: theme.transitions.create("transform", {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
-    expandOpen: {
-      transform: "rotate(180deg)",
-    },
-    avatar: {
-      backgroundColor: red[500],
-      width: "60px",
-      height: "60px",
-    },
-    rating: {
-      paddingLeft: "5%",
-    },
-  })
-);
-
-const MovieCard: React.FC<{ movie: IMovieProps }> = ({
-  movie,
-}: {
-  movie: IMovieProps;
-}) => {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+const MovieCard = ({ movie }: { movie: IMovieProps }) => {
+  const [expanded, setExpanded] = React.useState(false)
 
   const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+    setExpanded(!expanded)
+  }
 
-  const subheader = `${movie.director}, ${movie.year}`;
+  const subheader = `${movie.director}, ${movie.year}`
 
   return (
-    <Card className={classes.card}>
+    <Card
+      css={css`
+        maxwidth: 345;
+      `}
+    >
       <CardHeader
         avatar={
-          <Avatar aria-label="rated" className={classes.avatar}>
+          <Avatar
+            aria-label="rated"
+            css={css`
+              background-color: red[500];
+              width: "60px";
+              height: "60px";
+            `}
+          >
             {movie.rated}
           </Avatar>
         }
@@ -81,7 +57,9 @@ const MovieCard: React.FC<{ movie: IMovieProps }> = ({
       <Rating
         name="rating"
         size="small"
-        className={classes.rating}
+        css={css`
+          padding-left: "5%";
+        `}
         readOnly
         value={movie.rating}
       />
@@ -120,16 +98,25 @@ const MovieCard: React.FC<{ movie: IMovieProps }> = ({
         </Typography>
       </CardContent>
       <CardMedia
-        className={classes.media}
+        css={css`
+          height: 0;
+          paddingtop: "56.25%";
+        `}
         image={movie.poster}
         title={movie.title}
       />
       <Divider />
       <CardActions disableSpacing>
         <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
+          css={css`
+            transform: "rotate(0deg)";
+            margin-left: "auto";
+            transition: theme.transitions.create(
+              "transform",
+              {duration: theme.transitions.duration.shortest,
+              }
+            );
+          `}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
@@ -145,7 +132,7 @@ const MovieCard: React.FC<{ movie: IMovieProps }> = ({
         </CardContent>
       </Collapse>
     </Card>
-  );
-};
+  )
+}
 
-export default MovieCard;
+export default MovieCard

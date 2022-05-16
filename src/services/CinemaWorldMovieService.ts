@@ -1,4 +1,4 @@
-import IMovieProps from "../IMovieProps";
+import IMovieProps from "../IMovieProps"
 //import axios from 'axios';
 
 export default class CinemaWorldMovieService {
@@ -55,6 +55,6 @@ export default class CinemaWorldMovieService {
         type: "movie",
         price: "13.5",
       },
-    ];
+    ]
   }
 }

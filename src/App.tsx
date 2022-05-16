@@ -1,24 +1,20 @@
-import React from 'react';
-import './App.css';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import 'typeface-roboto';
-import MovieAppBar from './MovieAppBar';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react"
+import "./App.css"
+import CssBaseline from "@mui/material/CssBaseline"
+import "typeface-roboto"
+import MovieAppBar from "./MovieAppBar"
 
-const useStyles = makeStyles({
-  root: {
-    width: '100%'
-  },
-});
+import { StyledEngineProvider } from "@mui/material/styles"
 
-const App: React.FC = () => {
-  const classes = useStyles();
+const App = () => {
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <MovieAppBar />
-    </div>
-  );
+    <React.Fragment>
+      <StyledEngineProvider injectFirst>
+        <CssBaseline />
+        <MovieAppBar />
+      </StyledEngineProvider>
+    </React.Fragment>
+  )
 }
 
-export default App;
+export default App

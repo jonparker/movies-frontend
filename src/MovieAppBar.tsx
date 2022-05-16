@@ -1,24 +1,27 @@
-import React, { useEffect } from "react";
-import { makeStyles, Theme } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import Movies from "./Movies";
-import CinemaWorldMovieService from "./services/CinemaWorldMovieService";
-import FilmWorldMovieService from "./services/FilmWorldMovieService";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import IMovieProps from "./IMovieProps";
+/* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
+/** @jsxImportSource @emotion/react */
+
+import React, { useEffect } from "react"
+import { css } from "@emotion/react"
+import AppBar from "@mui/material/AppBar"
+import Tabs from "@mui/material/Tabs"
+import Tab from "@mui/material/Tab"
+import Typography from "@mui/material/Typography"
+import Box from "@mui/material/Box"
+import Movies from "./Movies"
+import CinemaWorldMovieService from "./services/CinemaWorldMovieService"
+import FilmWorldMovieService from "./services/FilmWorldMovieService"
+import CircularProgress from "@mui/material/CircularProgress"
+import IMovieProps from "./IMovieProps"
 
 interface TabPanelProps {
-  children?: React.ReactNode;
-  index: any;
-  value: any;
+  children?: React.ReactNode
+  index: any
+  value: any
 }
 
 function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = props
 
   return (
     <Typography
@@ -31,52 +34,51 @@ function TabPanel(props: TabPanelProps) {
     >
       <Box p={3}>{children}</Box>
     </Typography>
-  );
+  )
 }
 
 function a11yProps(index: any) {
   return {
     id: `movie-tab-${index}`,
     "aria-controls": `movie-tabpanel-${index}`,
-  };
+  }
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
-
 export default function SimpleTabs() {
-  const cinemaWorldMovieService = new CinemaWorldMovieService();
-  const filmWorldMoviesService = new FilmWorldMovieService();
+  const [value, setValue] = React.useState(0)
 
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const [cinemaWorldMovies, setCinemaWorldMovies] =
-    React.useState<IMovieProps[] | null>(null);
-  const [filmWorldMovies, setFilmWorldMovies] =
-    React.useState<IMovieProps[] | null>(null);
+  const [cinemaWorldMovies, setCinemaWorldMovies] = React.useState<
+    IMovieProps[] | null
+  >(null)
+  const [filmWorldMovies, setFilmWorldMovies] = React.useState<
+    IMovieProps[] | null
+  >(null)
 
   useEffect(() => {
+    const cinemaWorldMovieService = new CinemaWorldMovieService()
+    const filmWorldMoviesService = new FilmWorldMovieService()
+
     const fetchAll = () => {
-      setCinemaWorldMovies(cinemaWorldMovieService.GetMovies());
-      setFilmWorldMovies(filmWorldMoviesService.GetMovies());
-    };
-    fetchAll();
-  }, []);
+      setCinemaWorldMovies(cinemaWorldMovieService.GetMovies())
+      setFilmWorldMovies(filmWorldMoviesService.GetMovies())
+    }
+    fetchAll()
+  }, [])
 
   const handleChange = (
-    event: React.ChangeEvent<Record<string, unknown>>,
+    event: React.SyntheticEvent<Element, Event>,
     newValue: number
   ) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
   return (
-    <div className={classes.root}>
+    <div
+      css={css`
+        flex-grow: 1;
+        background-color: white;
+      `}
+    >
       <AppBar position="static">
         <Tabs
           value={value}
@@ -96,5 +98,5 @@ export default function SimpleTabs() {
         {!filmWorldMovies && <CircularProgress disableShrink />}
       </TabPanel>
     </div>
-  );
+  )
 }

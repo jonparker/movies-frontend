@@ -1,4 +1,4 @@
-import IMovieProps from "../IMovieProps";
+import IMovieProps from "../IMovieProps"
 
 export default class FilmWorldMovieService {
   GetMovies(): Array<IMovieProps> {
@@ -50,6 +50,6 @@ export default class FilmWorldMovieService {
         type: "movie",
         price: "129.9",
       },
-    ];
+    ]
   }
 }
