@@ -19,15 +19,7 @@ jobs:
       - run: npm i typescript -g
       - run: npm ci
       - run: npm run build --if-present
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - run: npm test
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
