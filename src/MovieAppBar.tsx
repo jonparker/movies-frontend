@@ -2,8 +2,8 @@
 /** @jsxImportSource @emotion/react */
 
 import React, { useEffect } from "react"
-import { css } from "@emotion/react"
 import AppBar from "@mui/material/AppBar"
+import Container from "@mui/material/Container"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 import Typography from "@mui/material/Typography"
@@ -32,7 +32,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      <Box p={3}>{children}</Box>
+      {children}
     </Typography>
   )
 }
@@ -66,17 +66,14 @@ export default function SimpleTabs() {
   }
 
   return (
-    <div
-      css={css`
-        flex-grow: 1;
-        background-color: white;
-      `}
-    >
+    <Container maxWidth="sm">
       <AppBar position="static">
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="cinema world and film world tabs"
+          textColor="secondary"
+          indicatorColor="secondary"
         >
           <Tab label="Cinema World" />
           <Tab label="Film World" />
@@ -90,6 +87,6 @@ export default function SimpleTabs() {
         {filmWorldMovies && <Movies key={2} movies={filmWorldMovies} />}
         {!filmWorldMovies && <CircularProgress disableShrink />}
       </TabPanel>
-    </div>
+    </Container>
   )
 }

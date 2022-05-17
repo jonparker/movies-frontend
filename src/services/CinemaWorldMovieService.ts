@@ -1,11 +1,7 @@
 import IMovieProps from "../IMovieProps"
-//import axios from 'axios';
 
 export default class CinemaWorldMovieService {
   GetMovies(): Array<IMovieProps> {
-    // axios.get("https://dog.ceo/api/breeds/list/all")
-    // .then(res => console.log(res.data));
-
     return [
       {
         id: "cw0076759",
