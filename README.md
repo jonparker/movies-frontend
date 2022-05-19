@@ -1,6 +1,6 @@
 # Movies App
 
-This app is the front end of a Movies web app.
+This app is the front end of a Movies web app build with React.
 
 ## Development
 In the project directory, you can run:
