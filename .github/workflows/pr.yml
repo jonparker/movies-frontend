@@ -1,0 +1,46 @@
+name: ⚙️ CI
+
+on:
+  pull_request
+
+jobs:
+  only-doc-changes:
+    if: github.repository == 'jonparker/movies-frontend'
+    name: 📖 Only doc changes?
+    runs-on: ubuntu-latest
+    outputs:
+      only-doc-changes: ${{ steps.only-doc-changes.outputs.only-doc-changes }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Get NPM cache directory path
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::.npmcache"
+        shell: bash
+
+      - name: Restore yarn cache
+        uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+          key: npm-1234-${{ hashFiles('package-lock.json', 'package.json') }}
+          restore-keys: |
+            npm-1234-
+
+      - run: npm install
+
+      - name: 📖 Only doc changes?
+        id: only-doc-changes
+        uses: ./.github/actions/only_doc_changes
+
+  check-docs:
+    needs: only-doc-changes
+    if: needs.only-doc-changes.outputs.only-doc-changes == 'true'
+    name: ✅ Check constraints, dependencies, and package.json's
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Only doc changes"
