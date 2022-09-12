@@ -26,10 +26,6 @@ import CreateIcon from "@mui/icons-material/Create"
 const MovieCard = ({ movie }: { movie: IMovieProps }) => {
   const [expanded, setExpanded] = React.useState(false)
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded)
-  }
-
   const subheader = `${movie.director}, ${movie.year}`
 
   return (
@@ -117,7 +113,7 @@ const MovieCard = ({ movie }: { movie: IMovieProps }) => {
               }
             );
           `}
-          onClick={handleExpandClick}
+          onClick={() => setExpanded(!expanded)}
           aria-expanded={expanded}
           aria-label="show more"
         >

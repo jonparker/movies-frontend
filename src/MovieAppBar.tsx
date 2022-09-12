@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
 /** @jsxImportSource @emotion/react */
 
-import React, { useEffect } from "react"
+import React, { useEffect, useMemo } from "react"
 import AppBar from "@mui/material/AppBar"
 import Container from "@mui/material/Container"
 import Tabs from "@mui/material/Tabs"
@@ -37,39 +37,30 @@ function TabPanel(props: TabPanelProps) {
 }
 
 export default function SimpleTabs() {
-  const [value, setValue] = React.useState(0)
+  const [tabValue, setTabValue] = React.useState(0)
 
   const [cinemaWorldMovies, setCinemaWorldMovies] = React.useState<
     IMovieProps[] | null
   >(null)
+
   const [filmWorldMovies, setFilmWorldMovies] = React.useState<
     IMovieProps[] | null
   >(null)
 
-  useEffect(() => {
+  useMemo(() => {
     const cinemaWorldMovieService = new CinemaWorldMovieService()
     const filmWorldMoviesService = new FilmWorldMovieService()
 
-    const fetchAll = () => {
-      setCinemaWorldMovies(cinemaWorldMovieService.GetMovies())
-      setFilmWorldMovies(filmWorldMoviesService.GetMovies())
-    }
-    fetchAll()
+    setCinemaWorldMovies(cinemaWorldMovieService.GetMovies())
+    setFilmWorldMovies(filmWorldMoviesService.GetMovies())
   }, [])
-
-  const handleChange = (
-    event: React.SyntheticEvent<Element, Event>,
-    newValue: number
-  ) => {
-    setValue(newValue)
-  }
 
   return (
     <Container maxWidth="sm">
       <AppBar position="static">
         <Tabs
-          value={value}
-          onChange={handleChange}
+          value={tabValue}
+          onChange={(_, newValue) => setTabValue(newValue)}
           aria-label="cinema world and film world tabs"
           textColor="secondary"
           indicatorColor="secondary"
@@ -78,11 +69,11 @@ export default function SimpleTabs() {
           <Tab label="Film World" />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={tabValue} index={0}>
         {cinemaWorldMovies && <Movies key={1} movies={cinemaWorldMovies} />}
         {!cinemaWorldMovies && <CircularProgress disableShrink />}
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={tabValue} index={1}>
         {filmWorldMovies && <Movies key={2} movies={filmWorldMovies} />}
         {!filmWorldMovies && <CircularProgress disableShrink />}
       </TabPanel>
