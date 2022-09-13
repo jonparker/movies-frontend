@@ -30,7 +30,7 @@ export default class FilmWorldMovieService {
       {
         title: "Star Wars: Episode III - Revenge of the Sith",
         year: "2005",
-        rated: "PG-13",
+        rated: "PG",
         released: "19 May 2005",
         runtime: "140 min",
         genre: "Action, Adventure, Fantasy",

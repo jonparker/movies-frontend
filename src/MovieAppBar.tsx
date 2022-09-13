@@ -1,9 +1,6 @@
-/* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
-/** @jsxImportSource @emotion/react */
-
-import React, { useEffect, useMemo } from "react"
+import React, { useMemo, useState } from "react"
 import AppBar from "@mui/material/AppBar"
-import Container from "@mui/material/Container"
+import Box from "@mui/material/Box"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 import Typography from "@mui/material/Typography"
@@ -39,13 +36,13 @@ function TabPanel(props: TabPanelProps) {
 export default function SimpleTabs() {
   const [tabValue, setTabValue] = React.useState(0)
 
-  const [cinemaWorldMovies, setCinemaWorldMovies] = React.useState<
+  const [cinemaWorldMovies, setCinemaWorldMovies] = useState<
     IMovieProps[] | null
   >(null)
 
-  const [filmWorldMovies, setFilmWorldMovies] = React.useState<
-    IMovieProps[] | null
-  >(null)
+  const [filmWorldMovies, setFilmWorldMovies] = useState<IMovieProps[] | null>(
+    null
+  )
 
   useMemo(() => {
     const cinemaWorldMovieService = new CinemaWorldMovieService()
@@ -56,7 +53,7 @@ export default function SimpleTabs() {
   }, [])
 
   return (
-    <Container maxWidth="sm">
+    <Box sx={{ flexGrow: 1, padding: 2 }}>
       <AppBar position="static">
         <Tabs
           value={tabValue}
@@ -70,13 +67,19 @@ export default function SimpleTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={tabValue} index={0}>
-        {cinemaWorldMovies && <Movies key={1} movies={cinemaWorldMovies} />}
-        {!cinemaWorldMovies && <CircularProgress disableShrink />}
+        {cinemaWorldMovies !== null ? (
+          <Movies key={1} movies={cinemaWorldMovies} />
+        ) : (
+          <CircularProgress disableShrink />
+        )}
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        {filmWorldMovies && <Movies key={2} movies={filmWorldMovies} />}
-        {!filmWorldMovies && <CircularProgress disableShrink />}
+        {filmWorldMovies !== null ? (
+          <Movies key={2} movies={filmWorldMovies} />
+        ) : (
+          <CircularProgress disableShrink />
+        )}
       </TabPanel>
-    </Container>
+    </Box>
   )
 }
