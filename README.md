@@ -1,6 +1,7 @@
 # Movies App
 
-This app is the front end of a Movies web app.
+This app is a demo front end built with React that displays movies.
+It contains a service function which returns a static list of movies which represents a REST API.
 
 ## Development
 
@@ -14,7 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `npm test`
+### `npm test` (note: tests need to be fixed after upgrading to React 18)
 
 Launches the test runner in the interactive watch mode.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
