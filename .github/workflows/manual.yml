@@ -35,4 +35,4 @@ jobs:
 
     - name: Execute Step Function
       run: |
-        aws stepfunctions start-execution --state-machine-arn "${{ github.event.inputs.step-function-arn }}
+        aws stepfunctions start-execution --state-machine-arn ${{ github.event.inputs.step-function-arn }}
