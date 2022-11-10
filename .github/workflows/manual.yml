@@ -19,6 +19,13 @@ on:
         description: 'Something flag to pass to the step function'
         default: true
         required: true
+      test-scenario:
+        type: choice
+        description: Choose which scenario to run
+        options:
+        - retention
+        - purchase
+        - acquisition
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
