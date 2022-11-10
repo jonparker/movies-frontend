@@ -49,5 +49,5 @@ jobs:
         aws stepfunctions start-execution --state-machine-arn ${{ github.event.inputs.step-function-arn }} \
         --input "{ \
           \"IsHelloWorldExample\": ${{ github.event.inputs.step-function-flag }} \
-          \"Scenario\": "${{ github.event.inputs.test-scenario }}" \
+          \"Scenario\": \"${{ github.event.inputs.test-scenario }}\" \
         }"
